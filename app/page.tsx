@@ -39,7 +39,7 @@ export default function Home() {
 
       {/* Portfolio Grid */}
       <section id="portfolio" className="max-w-7xl mx-auto px-8 py-16" style={{ marginTop: '20px' }}>
-        <h3 className="text-3xl font-light mb-12">Featured Works</h3>
+        <h3 className="text-3xl font-light mb-12">Portfolio</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioItems.map((item, index) => (
             <div key={index} className="group cursor-pointer">
@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-12 text-center text-sm text-zinc-600 dark:text-zinc-400">
-        <p>&copy; 2024 Aburanem. All rights reserved.</p>
+        <p>&copy; 2024 Aburanem. All rights reserved    |   info@alexandergad.art</p>
       </footer>
     </main>
   );
