@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Interactive Gallery */}
-      <section id="portfolio" className="py-16" style={{ marginTop: '20px' }}>
+      <section id="portfolio" className="py-16" style={{ marginTop: '10px' }}>
         <div className="max-w-7xl mx-auto px-8 mb-8">
           <h3 className="text-3xl font-light">Portfolio</h3>
         </div>
