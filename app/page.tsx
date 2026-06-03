@@ -45,7 +45,7 @@ export default function Home() {
         <h3 className="text-3xl font-light mb-12">Portfolio</h3>
 
         {/* Large Featured Image */}
-        <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden bg-gray-900 mb-8">
+        <div className="relative w-full h-96 md:h-[500px] overflow-hidden bg-gray-900 mb-8">
           <Image
             src={selectedImage.image}
             alt={selectedImage.title}
@@ -61,7 +61,7 @@ export default function Home() {
             <button
               key={index}
               onClick={() => setSelectedImage(item)}
-              className={`relative h-40 overflow-hidden rounded-sm cursor-pointer transition-opacity ${
+              className={`relative h-40 overflow-hidden cursor-pointer transition-opacity ${
                 selectedImage.image === item.image ? 'ring-2 ring-black dark:ring-white' : 'opacity-80 hover:opacity-100'
               }`}
             >
