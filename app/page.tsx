@@ -42,6 +42,8 @@ export default function Home() {
 
       {/* Portfolio Interactive Gallery */}
       <section id="portfolio" className="max-w-7xl mx-auto px-8 py-16" style={{ marginTop: '20px' }}>
+        <h3 className="text-3xl font-light mb-12">Portfolio</h3>
+
         {/* Large Featured Image */}
         <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden bg-gray-900 mb-8">
           <Image
