@@ -29,8 +29,8 @@ export default function Home() {
         </div>
 
         {/* Large Featured Image */}
-        <div className="relative w-full h-[500px] md:h-[700px] overflow-hidden bg-gray-900 mb-8 px-[50px]">
-          <div className="relative w-full h-full">
+        <div className="relative w-full mb-8 px-[50px] bg-gray-100 dark:bg-gray-800">
+          <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
             <Image
               src={selectedImage.image}
               alt={selectedImage.title}
