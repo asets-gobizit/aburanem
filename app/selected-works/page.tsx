@@ -120,13 +120,6 @@ export default function SelectedWorks() {
               </button>
             </div>
 
-            {/* Artwork Details */}
-            <div className="mt-3">
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                {selected.medium} &nbsp;·&nbsp; {selected.dimensions}
-              </p>
-            </div>
-
             {/* Thumbnails */}
             <div className="flex gap-[5px] mt-4 overflow-x-auto">
               {works.map((item, index) => (
