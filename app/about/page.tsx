@@ -7,11 +7,16 @@ export default function About() {
     <main className="flex-1 bg-white dark:bg-zinc-950">
       <section className="w-full py-20">
         <div className="max-w-4xl mx-auto px-8">
-          {/* Featured Image */}
+          {/* Featured Triangle Image */}
           <div className="flex justify-center mb-12">
-            <div className="relative w-full max-w-2xl h-96">
+            <div
+              className="relative w-80 h-80 md:w-96 md:h-96"
+              style={{
+                clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
+              }}
+            >
               <Image
-                src="/graphics/4ffbba_1c5e3868b8db4f8c8a846253fe346163f000.jpg"
+                src="/graphics/triangle-about.avif"
                 alt="The Intuitive Tectonics of Alexander Gad"
                 fill
                 className="object-cover"
