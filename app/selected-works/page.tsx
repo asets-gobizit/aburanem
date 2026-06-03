@@ -66,12 +66,22 @@ export default function SelectedWorks() {
                 </p>
               ))}
             </div>
-            {/* Image */}
-            <div className="md:w-[45%]">
-              <div className="relative w-full h-64 md:h-80">
+            {/* Images */}
+            <div className="md:w-[45%] space-y-4">
+              {/* Cover Artwork */}
+              <div className="relative w-full h-64">
+                <Image
+                  src="/graphics/selected-works/cover-artwork.jpg"
+                  alt="Cover Artwork"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              {/* Artist Statement Artwork */}
+              <div className="relative w-full h-64">
                 <Image
                   src="/graphics/selected-works/artist-statement-image.jpg"
-                  alt="Artist Statement - Alexander Gad"
+                  alt="Artist Statement Artwork"
                   fill
                   className="object-contain"
                 />
