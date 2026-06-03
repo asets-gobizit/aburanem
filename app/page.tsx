@@ -57,7 +57,7 @@ export default function Home() {
                 const nextIndex = currentIndex === portfolioItems.length - 1 ? 0 : currentIndex + 1;
                 setSelectedImage(portfolioItems[nextIndex]);
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 transition text-4xl font-light z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition text-4xl font-light z-10"
               aria-label="Next image"
             >
               ›
