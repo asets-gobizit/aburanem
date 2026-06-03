@@ -18,15 +18,18 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Right Image */}
-          <div className="relative w-full h-64 md:h-96">
-            <Image
-              src="/graphics/4ffbba_1eac84a4bfe54cfbbe1774e97f255490~mv2.jpg"
-              alt="Vibrant Abstract Art"
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
+          {/* Right Video Background */}
+          <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden bg-black">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/graphics/Home Avganim 1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
