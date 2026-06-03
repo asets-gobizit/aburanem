@@ -54,7 +54,19 @@ export default function SelectedWorks() {
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
       <section className="max-w-7xl mx-auto px-8 py-12">
-        <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-10">Selected Works</h2>
+        <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-8">Selected Works</h2>
+
+        {/* Artist Statement */}
+        <div className="mb-12 pb-8 border-b border-zinc-200 dark:border-zinc-800">
+          <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-4">Artist Statement</h3>
+          <div className="space-y-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {artistStatement.split('\n\n').map((paragraph, i) => (
+              <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
 
         {/* Category Toggle */}
         <div className="flex gap-8 mb-10 border-b border-zinc-200 dark:border-zinc-800">
@@ -80,12 +92,9 @@ export default function SelectedWorks() {
           </button>
         </div>
 
-        {/* Main Gallery Area */}
-        <div className="flex flex-col md:flex-row gap-8 mb-8">
-
-          {/* Left: Large Image with Arrows */}
-          <div className="md:w-[65%]">
-            <div className="relative w-full h-[420px] md:h-[520px] overflow-hidden bg-gray-100">
+        {/* Main Gallery Area - Full Width */}
+        <div className="w-full mb-8">
+            <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-gray-100">
               <Image
                 src={selected.image}
                 alt={`Untitled — ${selected.medium}`}
@@ -114,7 +123,7 @@ export default function SelectedWorks() {
             {/* Artwork Details */}
             <div className="mt-3">
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Untitled &nbsp;·&nbsp; {selected.medium} &nbsp;·&nbsp; {selected.dimensions}
+                {selected.medium} &nbsp;·&nbsp; {selected.dimensions}
               </p>
             </div>
 
@@ -137,19 +146,6 @@ export default function SelectedWorks() {
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* Right: Artist Statement Panel */}
-          <div className="md:w-[35%]">
-            <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-4">Artist Statement</h3>
-            <div className="space-y-4">
-              {artistStatement.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
