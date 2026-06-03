@@ -53,12 +53,12 @@ export default function SelectedWorks() {
           <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-8">Artist Statement</h3>
 
           {/* Statement Image - Full Width */}
-          <div className="relative w-full h-64 md:h-96 mb-8">
+          <div className="relative w-full h-48 md:h-[350px] mb-8 flex items-center justify-center">
             <Image
               src="/graphics/selected-works/artist-statement.png"
               alt="Artist Statement Visual"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
 
@@ -79,7 +79,7 @@ export default function SelectedWorks() {
 
         {/* Main Gallery Area - Full Width */}
         <div className="w-full mb-8">
-            <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-white">
+            <div className="relative w-full h-[375px] md:h-[450px] overflow-hidden bg-white flex items-center justify-center">
               <Image
                 src={selected.image}
                 alt={`Untitled — ${selected.medium}`}
