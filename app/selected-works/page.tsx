@@ -52,26 +52,28 @@ export default function SelectedWorks() {
         <div className="mb-16 pb-12">
           <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-8">Artist Statement</h3>
 
-          {/* Two-column layout: Image + Text */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            {/* Left: Statement Image */}
-            <div className="relative h-96 md:h-[500px]">
-              <Image
-                src="/graphics/selected-works/fabric-01.jpg"
-                alt="Artist Statement Visual"
-                fill
-                className="object-cover"
-              />
-            </div>
+          {/* Statement Image - Full Width */}
+          <div className="relative w-full h-64 md:h-96 mb-8">
+            <Image
+              src="/graphics/selected-works/fabric-01.jpg"
+              alt="Artist Statement Visual"
+              fill
+              className="object-cover"
+            />
+          </div>
 
-            {/* Right: Text */}
-            <div className="space-y-4">
+          {/* Text with decorative element */}
+          <div className="relative">
+            <div className="space-y-4 max-w-4xl">
               {artistStatement.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed text-justify">
+                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
             </div>
+
+            {/* Decorative accent - positioned to the right */}
+            <div className="absolute bottom-0 right-0 -mr-8 -mb-8 w-40 h-40 bg-yellow-100 dark:bg-yellow-950/30 rounded-lg opacity-50"></div>
           </div>
         </div>
 
