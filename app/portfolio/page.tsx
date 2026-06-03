@@ -30,7 +30,7 @@ export default function Portfolio() {
                 const prevIndex = currentIndex === 0 ? portfolioItems.length - 1 : currentIndex - 1;
                 setSelectedImage(portfolioItems[prevIndex]);
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 transition text-4xl font-light z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition text-4xl font-light z-10"
               aria-label="Previous image"
             >
               ‹
