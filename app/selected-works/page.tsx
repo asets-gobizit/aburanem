@@ -14,35 +14,42 @@ I work primarily on a large scale in order to bypass control. Scale forces the b
 I have zero loyalty to any fixed language. For me, it is more crucial to remain in a permanent state of search than to claim something fixed. The work is not a conclusion. It is evidence of that refusal.`;
 
 const fabricWorks = [
-  { image: '/graphics/selected-works/fabric-01.jpg', dimensions: '150×200 cm', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-02.jpg', dimensions: '200×150 cm (2 works)', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-03.jpg', dimensions: '225×300 cm', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-04.jpg', dimensions: '200×225 cm / 150×200 cm (2 works)', medium: 'Fabric' },
+  { image: '/graphics/selected-works/Fabric-1- 150x200.png', dimensions: '150×200 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/Fabric-2- 150x200.png', dimensions: '150×200 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/Fabric-3- 225x300.png', dimensions: '225×300 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/Fabric-4- 200x225 & 150X200.png', dimensions: '200×225 & 150×200 cm', medium: 'Fabric' },
 ];
 
 const metalWorks = [
-  { image: '/graphics/selected-works/metal-00.jpg', dimensions: '100×215 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-01.jpg', dimensions: '150×200 cm (2 works)', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-02.jpg', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-03.jpg', dimensions: '150×150 cm (2 works)', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-04.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-05.jpg', dimensions: '75×215 cm', medium: 'Oil on aluminum' },
-  { image: '/graphics/selected-works/metal-06.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-07.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-1- 100X215.png', dimensions: '100×215 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-2- 150X200.png', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-3- 200X300.png', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-4- 200X300.png', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-5- 150X150.png', dimensions: '150×150 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-6- 150X300.png', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-7- 75X215.png', dimensions: '75×215 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-8- 150X300.png', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/Metal-9- 150X200.png', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
 ];
 
 export default function SelectedWorks() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState('fabric');
 
-  const allWorks = [...fabricWorks, ...metalWorks];
-  const selected = allWorks[selectedIndex];
+  const currentWorks = activeTab === 'fabric' ? fabricWorks : metalWorks;
+  const selected = currentWorks[selectedIndex];
 
   function handlePrev() {
-    setSelectedIndex(i => (i === 0 ? allWorks.length - 1 : i - 1));
+    setSelectedIndex(i => (i === 0 ? currentWorks.length - 1 : i - 1));
   }
 
   function handleNext() {
-    setSelectedIndex(i => (i === allWorks.length - 1 ? 0 : i + 1));
+    setSelectedIndex(i => (i === currentWorks.length - 1 ? 0 : i + 1));
+  }
+
+  function switchTab(tab: string) {
+    setActiveTab(tab);
+    setSelectedIndex(0);
   }
 
   return (
@@ -69,6 +76,32 @@ export default function SelectedWorks() {
                 {paragraph}
               </p>
             ))}
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="max-w-7xl mx-auto px-8 mb-8 border-b border-zinc-200 dark:border-zinc-800">
+          <div className="flex gap-8">
+            <button
+              onClick={() => switchTab('fabric')}
+              className={`pb-4 text-sm font-medium tracking-wide transition ${
+                activeTab === 'fabric'
+                  ? 'text-black dark:text-white border-b-2 border-black dark:border-white'
+                  : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
+              }`}
+            >
+              FABRIC WORKS
+            </button>
+            <button
+              onClick={() => switchTab('metal')}
+              className={`pb-4 text-sm font-medium tracking-wide transition ${
+                activeTab === 'metal'
+                  ? 'text-black dark:text-white border-b-2 border-black dark:border-white'
+                  : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
+              }`}
+            >
+              METAL WORKS
+            </button>
           </div>
         </div>
 
@@ -100,24 +133,36 @@ export default function SelectedWorks() {
               </button>
             </div>
 
+            {/* Dimensions and Medium */}
+            <div className="max-w-7xl mx-auto px-8 mt-4">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Untitled · {selected.medium} · {selected.dimensions}
+              </p>
+            </div>
+
             {/* Thumbnails */}
-            <div className="flex gap-[5px] mt-4 overflow-x-auto">
-              {allWorks.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedIndex(index)}
-                  className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity ${
-                    selectedIndex === index ? 'ring-2 ring-black dark:ring-white' : 'opacity-60 hover:opacity-100'
-                  }`}
-                >
-                  <Image
-                    src={item.image}
-                    alt={`Artwork ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </button>
-              ))}
+            <div className="max-w-7xl mx-auto px-8 mt-6">
+              <div className="flex gap-[5px] overflow-x-auto">
+                {currentWorks.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedIndex(index)}
+                    className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity ${
+                      selectedIndex === index ? 'ring-2 ring-black dark:ring-white' : 'opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={`Artwork ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs px-1 py-0.5 text-center">
+                      {item.dimensions}
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
         </div>
       </section>
