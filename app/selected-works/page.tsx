@@ -62,18 +62,13 @@ export default function SelectedWorks() {
             />
           </div>
 
-          {/* Text with decorative element */}
-          <div className="relative">
-            <div className="space-y-4 max-w-4xl">
-              {artistStatement.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            {/* Decorative accent - positioned to the right */}
-            <div className="absolute bottom-0 right-0 -mr-8 -mb-8 w-40 h-40 bg-yellow-100 dark:bg-yellow-950/30 rounded-lg opacity-50"></div>
+          {/* Text */}
+          <div className="space-y-4 max-w-4xl">
+            {artistStatement.split('\n\n').map((paragraph, i) => (
+              <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
 
