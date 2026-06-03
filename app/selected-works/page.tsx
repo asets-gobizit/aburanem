@@ -94,7 +94,7 @@ export default function SelectedWorks() {
 
         {/* Main Gallery Area - Full Width */}
         <div className="w-full mb-8">
-            <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-gray-100">
+            <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-white">
               <Image
                 src={selected.image}
                 alt={`Untitled — ${selected.medium}`}
