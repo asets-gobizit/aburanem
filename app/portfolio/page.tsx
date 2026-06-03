@@ -1,28 +1,51 @@
 'use client';
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Portfolio() {
+  const [selectedImage, setSelectedImage] = useState(portfolioItems[0]);
+
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
       <section className="max-w-7xl mx-auto px-8 py-16">
         <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-12">Portfolio</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Large Featured Image */}
+        <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden bg-gray-900 mb-8">
+          <Image
+            src={selectedImage.image}
+            alt={selectedImage.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Thumbnail Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[5px]">
           {portfolioItems.map((item, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div className="relative w-full h-64 overflow-hidden rounded-lg mb-4">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-medium">{item.title}</h3>
-              <p className="text-zinc-600 dark:text-zinc-400 text-sm">{item.description}</p>
-            </div>
+            <button
+              key={index}
+              onClick={() => setSelectedImage(item)}
+              className={`relative h-40 overflow-hidden rounded-sm cursor-pointer transition-opacity ${
+                selectedImage.image === item.image ? 'ring-2 ring-black dark:ring-white' : 'opacity-80 hover:opacity-100'
+              }`}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </button>
           ))}
+        </div>
+
+        {/* Image Title */}
+        <div className="mt-8">
+          <h3 className="text-2xl font-medium">{selectedImage.title}</h3>
+          <p className="text-zinc-600 dark:text-zinc-400 mt-2">{selectedImage.description}</p>
         </div>
       </section>
     </main>
