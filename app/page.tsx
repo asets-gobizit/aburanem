@@ -5,11 +5,24 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
-      {/* Hero Section - Wix Style */}
+      {/* Hero Section - Full Width Video (2/3 Height) */}
+      <section className="relative w-full h-[66vh] bg-black overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/graphics/Home Avganim 1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      {/* Title and Description Section */}
       <section className="w-full bg-white dark:bg-zinc-950">
         <div className="max-w-7xl mx-auto px-8 py-12">
-          {/* Title and Description Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             <div className="md:col-span-2">
               <h2 className="text-5xl md:text-6xl font-light tracking-tight">
                 Vibrant Abstract Art
@@ -20,20 +33,6 @@ export default function Home() {
                 A collection of artwork featuring abstract illustrations and colors in vibrant tones. Each piece explores the intersection of digital artistry and creative expression.
               </p>
             </div>
-          </div>
-
-          {/* Full Width Video */}
-          <div className="relative w-full h-96 rounded-lg overflow-hidden bg-black">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/graphics/Home Avganim 1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
           </div>
         </div>
       </section>
