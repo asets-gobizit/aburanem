@@ -22,24 +22,6 @@ export default function Home() {
         </video>
       </section>
 
-      {/* Title and Description Section */}
-      <section className="w-full bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            <div className="md:col-span-2">
-              <h2 className="text-5xl md:text-6xl font-light tracking-tight">
-                Vibrant Abstract Art
-              </h2>
-            </div>
-            <div className="md:col-span-1">
-              <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                A collection of artwork featuring abstract illustrations and colors in vibrant tones. Each piece explores the intersection of digital artistry and creative expression.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Portfolio Interactive Gallery */}
       <section id="portfolio" className="py-16" style={{ marginTop: '20px' }}>
         <div className="max-w-7xl mx-auto px-8 mb-8">
