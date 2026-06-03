@@ -24,7 +24,6 @@ const metalWorks = [
   { image: '/graphics/selected-works/Metal-1- 100X215.png', dimensions: '100×215 cm', medium: 'Mixed media on aluminum' },
   { image: '/graphics/selected-works/Metal-2- 150X200.png', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
   { image: '/graphics/selected-works/Metal-3- 200X300.png', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/Metal-4- 200X300.png', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
   { image: '/graphics/selected-works/Metal-5- 150X150.png', dimensions: '150×150 cm', medium: 'Mixed media on aluminum' },
   { image: '/graphics/selected-works/Metal-6- 150X300.png', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
   { image: '/graphics/selected-works/Metal-7- 75X215.png', dimensions: '75×215 cm', medium: 'Mixed media on aluminum' },
