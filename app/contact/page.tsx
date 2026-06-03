@@ -8,8 +8,8 @@ export default function Contact() {
       {/* Hero Image */}
       <div className="relative w-full h-96 md:h-[500px]">
         <Image
-          src="/graphics/contact/studio.jpg"
-          alt="Studio"
+          src="/graphics/contact/contact-hero.png"
+          alt="Contact"
           fill
           className="object-cover"
         />
