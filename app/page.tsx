@@ -1,8 +1,11 @@
 'use client';
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedImage, setSelectedImage] = useState(portfolioItems[0]);
+
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
       {/* Hero Section - Full Width Video (2/3 Height) */}
@@ -37,24 +40,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
+      {/* Portfolio Interactive Gallery */}
       <section id="portfolio" className="max-w-7xl mx-auto px-8 py-16" style={{ marginTop: '20px' }}>
         <h3 className="text-3xl font-light mb-12">Featured Works</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {/* Large Featured Image */}
+        <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden bg-gray-900 mb-8">
+          <Image
+            src={selectedImage.image}
+            alt={selectedImage.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Thumbnail Grid - 5px gaps */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[5px] mb-8">
           {portfolioItems.map((item, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div className="relative w-full h-64 overflow-hidden rounded-lg mb-4">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h4 className="text-xl font-medium">{item.title}</h4>
-              <p className="text-zinc-600 dark:text-zinc-400 text-sm">{item.description}</p>
-            </div>
+            <button
+              key={index}
+              onClick={() => setSelectedImage(item)}
+              className={`relative h-40 overflow-hidden rounded-sm cursor-pointer transition-opacity ${
+                selectedImage.image === item.image ? 'ring-2 ring-black dark:ring-white' : 'opacity-80 hover:opacity-100'
+              }`}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </button>
           ))}
+        </div>
+
+        {/* Image Title */}
+        <div>
+          <h4 className="text-2xl font-medium">{selectedImage.title}</h4>
+          <p className="text-zinc-600 dark:text-zinc-400 mt-2">{selectedImage.description}</p>
         </div>
       </section>
 
