@@ -1,8 +1,20 @@
 'use client';
 
+import Image from "next/image";
+
 export default function Contact() {
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
+      {/* Hero Image */}
+      <div className="relative w-full h-96 md:h-[500px]">
+        <Image
+          src="/graphics/contact/studio.jpg"
+          alt="Studio"
+          fill
+          className="object-cover"
+        />
+      </div>
+
       <section className="max-w-7xl mx-auto px-8 py-16">
         <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-12">Get In Touch</h2>
 
