@@ -35,6 +35,7 @@ const metalWorks = [
 export default function SelectedWorks() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('fabric');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const currentWorks = activeTab === 'fabric' ? fabricWorks : metalWorks;
   const selected = currentWorks[selectedIndex];
@@ -50,6 +51,14 @@ export default function SelectedWorks() {
   function switchTab(tab: string) {
     setActiveTab(tab);
     setSelectedIndex(0);
+  }
+
+  function openLightbox() {
+    setLightboxOpen(true);
+  }
+
+  function closeLightbox() {
+    setLightboxOpen(false);
   }
 
   return (
@@ -107,7 +116,7 @@ export default function SelectedWorks() {
 
         {/* Main Gallery Area - Full Width */}
         <div className="w-full mb-8">
-            <div className="relative w-full h-64 md:h-80 overflow-hidden bg-white flex items-center justify-center">
+            <div className="relative w-full h-64 md:h-80 overflow-hidden bg-white flex items-center justify-center cursor-pointer hover:opacity-90 transition" onClick={openLightbox}>
               <Image
                 src={selected.image}
                 alt={`Untitled — ${selected.medium}`}
@@ -146,8 +155,11 @@ export default function SelectedWorks() {
                 {currentWorks.map((item, index) => (
                   <button
                     key={index}
-                    onClick={() => setSelectedIndex(index)}
-                    className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity ${
+                    onClick={() => {
+                      setSelectedIndex(index);
+                      openLightbox();
+                    }}
+                    className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity cursor-pointer ${
                       selectedIndex === index ? 'ring-2 ring-black dark:ring-white' : 'opacity-60 hover:opacity-100'
                     }`}
                   >
@@ -171,6 +183,61 @@ export default function SelectedWorks() {
       <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-12 text-center text-sm text-zinc-600 dark:text-zinc-400">
         <p>&copy; 2024 Aburanem. All rights reserved    |   info@alexandergad.art</p>
       </footer>
+
+      {/* Lightbox Modal */}
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-95 flex flex-col items-center justify-center p-4" onClick={closeLightbox}>
+          <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition text-3xl z-50 font-light"
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            {/* Image */}
+            <div className="relative w-full h-full max-w-6xl max-h-[90vh]">
+              <Image
+                src={selected.image}
+                alt={`Untitled — ${selected.medium}`}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition text-5xl font-light z-40"
+              aria-label="Previous"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition text-5xl font-light z-40"
+              aria-label="Next"
+            >
+              ›
+            </button>
+
+            {/* Image Info */}
+            <div className="absolute bottom-4 left-4 right-4 text-white text-sm">
+              <p>Untitled · {selected.medium} · {selected.dimensions}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
