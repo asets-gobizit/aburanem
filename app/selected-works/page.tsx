@@ -15,24 +15,20 @@ I have zero loyalty to any fixed language. For me, it is more crucial to remain 
 
 const fabricWorks = [
   { image: '/graphics/selected-works/fabric-01.jpg', dimensions: '150×200 cm', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-02-a.jpg', dimensions: '200×150 cm', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-02-b.jpg', dimensions: '200×150 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/fabric-02.jpg', dimensions: '200×150 cm (2 works)', medium: 'Fabric' },
   { image: '/graphics/selected-works/fabric-03.jpg', dimensions: '225×300 cm', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-04-a.jpg', dimensions: '200×225 cm', medium: 'Fabric' },
-  { image: '/graphics/selected-works/fabric-04-b.jpg', dimensions: '150×200 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/fabric-04.jpg', dimensions: '200×225 cm / 150×200 cm (2 works)', medium: 'Fabric' },
 ];
 
 const metalWorks = [
-  { image: '/graphics/selected-works/metal-01.jpg', dimensions: '100×215 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-02-a.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-02-b.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-03.jpg', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-04-a.jpg', dimensions: '150×150 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-04-b.jpg', dimensions: '150×150 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-05.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-06.jpg', dimensions: '75×215 cm', medium: 'Oil on aluminum' },
-  { image: '/graphics/selected-works/metal-07.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
-  { image: '/graphics/selected-works/metal-08.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-00.jpg', dimensions: '100×215 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-01.jpg', dimensions: '150×200 cm (2 works)', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-02.jpg', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-03.jpg', dimensions: '150×150 cm (2 works)', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-04.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-05.jpg', dimensions: '75×215 cm', medium: 'Oil on aluminum' },
+  { image: '/graphics/selected-works/metal-06.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-07.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
 ];
 
 export default function SelectedWorks() {
