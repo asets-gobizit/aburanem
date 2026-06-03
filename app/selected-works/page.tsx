@@ -1,0 +1,162 @@
+'use client';
+
+import Image from "next/image";
+import { useState } from "react";
+
+const artistStatement = `My practice is a process of emotional excavation. I am a digger. I enter a theme or a material with total intensity and stay with it until it resists me, until it refuses further manipulation. Only then do I surface and begin again. My practice functions as a ritual of ontological fixation; a deliberate attempt to reach the Kern, the irreducible core of a moment, a state, or a self, and crystallize it into form.
+
+I don't want to hold to a particular narrative; I only enjoy the process of diving. Heavy oils, burned plastic on metal, found wood, mirrors, cloth-materials are chosen for their capacity to endure confrontation. The surface must survive pressure, abrasion, insistence. There is a necessary aggression in this collision a controlled violence required to break through the surface and reach the core.
+
+What interests me is the endurance of a sudden idea while the material continues to respond in a way that is aesthetically attractive to me.
+
+I work primarily on a large scale in order to bypass control. Scale forces the body to participate. In that state, the painting stops being obedient and begins to assert itself. It pushes back. It dictates its own evolution.
+
+I have zero loyalty to any fixed language. For me, it is more crucial to remain in a permanent state of search than to claim something fixed. The work is not a conclusion. It is evidence of that refusal.`;
+
+const fabricWorks = [
+  { image: '/graphics/selected-works/fabric-01.jpg', dimensions: '150×200 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/fabric-02.jpg', dimensions: '200×150 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/fabric-03.jpg', dimensions: '225×300 cm', medium: 'Fabric' },
+  { image: '/graphics/selected-works/fabric-04.jpg', dimensions: '200×225 cm', medium: 'Fabric' },
+];
+
+const metalWorks = [
+  { image: '/graphics/selected-works/metal-01.jpg', dimensions: '100×215 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-02.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-03.jpg', dimensions: '200×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-04.jpg', dimensions: '150×150 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-05.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-06.jpg', dimensions: '75×215 cm', medium: 'Oil on aluminum' },
+  { image: '/graphics/selected-works/metal-07.jpg', dimensions: '150×300 cm', medium: 'Mixed media on aluminum' },
+  { image: '/graphics/selected-works/metal-08.jpg', dimensions: '150×200 cm', medium: 'Mixed media on aluminum' },
+];
+
+export default function SelectedWorks() {
+  const [activeCategory, setActiveCategory] = useState<'fabric' | 'metal'>('fabric');
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const works = activeCategory === 'fabric' ? fabricWorks : metalWorks;
+  const selected = works[selectedIndex];
+
+  function handleCategory(cat: 'fabric' | 'metal') {
+    setActiveCategory(cat);
+    setSelectedIndex(0);
+  }
+
+  function handlePrev() {
+    setSelectedIndex(i => (i === 0 ? works.length - 1 : i - 1));
+  }
+
+  function handleNext() {
+    setSelectedIndex(i => (i === works.length - 1 ? 0 : i + 1));
+  }
+
+  return (
+    <main className="flex-1 bg-white dark:bg-zinc-950">
+      <section className="max-w-7xl mx-auto px-8 py-12">
+        <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-10">Selected Works</h2>
+
+        {/* Category Toggle */}
+        <div className="flex gap-8 mb-10 border-b border-zinc-200 dark:border-zinc-800">
+          <button
+            onClick={() => handleCategory('fabric')}
+            className={`pb-3 text-sm font-medium tracking-wider uppercase transition-colors ${
+              activeCategory === 'fabric'
+                ? 'border-b-2 border-black dark:border-white text-black dark:text-white'
+                : 'text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300'
+            }`}
+          >
+            Fabric Works
+          </button>
+          <button
+            onClick={() => handleCategory('metal')}
+            className={`pb-3 text-sm font-medium tracking-wider uppercase transition-colors ${
+              activeCategory === 'metal'
+                ? 'border-b-2 border-black dark:border-white text-black dark:text-white'
+                : 'text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300'
+            }`}
+          >
+            Metal Works
+          </button>
+        </div>
+
+        {/* Main Gallery Area */}
+        <div className="flex flex-col md:flex-row gap-8 mb-8">
+
+          {/* Left: Large Image with Arrows */}
+          <div className="md:w-[65%]">
+            <div className="relative w-full h-[420px] md:h-[520px] overflow-hidden bg-gray-100">
+              <Image
+                src={selected.image}
+                alt={`Untitled — ${selected.medium}`}
+                fill
+                className="object-contain"
+                priority
+              />
+              {/* Left Arrow */}
+              <button
+                onClick={handlePrev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition text-5xl font-light z-10 drop-shadow-lg"
+                aria-label="Previous"
+              >
+                ‹
+              </button>
+              {/* Right Arrow */}
+              <button
+                onClick={handleNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition text-5xl font-light z-10 drop-shadow-lg"
+                aria-label="Next"
+              >
+                ›
+              </button>
+            </div>
+
+            {/* Artwork Details */}
+            <div className="mt-3">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                Untitled &nbsp;·&nbsp; {selected.medium} &nbsp;·&nbsp; {selected.dimensions}
+              </p>
+            </div>
+
+            {/* Thumbnails */}
+            <div className="flex gap-[5px] mt-4 overflow-x-auto">
+              {works.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedIndex(index)}
+                  className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity ${
+                    selectedIndex === index ? 'ring-2 ring-black dark:ring-white' : 'opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <Image
+                    src={item.image}
+                    alt={`Artwork ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Artist Statement Panel */}
+          <div className="md:w-[35%]">
+            <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-4">Artist Statement</h3>
+            <div className="space-y-4">
+              {artistStatement.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-12 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <p>&copy; 2024 Aburanem. All rights reserved    |   info@alexandergad.art</p>
+      </footer>
+    </main>
+  );
+}

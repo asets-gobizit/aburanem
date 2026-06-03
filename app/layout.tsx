@@ -34,6 +34,7 @@ export default function RootLayout({
             <div className="flex gap-8 text-sm font-medium">
               <a href="/" className="hover:text-zinc-600 dark:hover:text-zinc-300">Home</a>
               <a href="/#portfolio" className="hover:text-zinc-600 dark:hover:text-zinc-300">Portfolio</a>
+              <a href="/selected-works" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Selected Works</a>
               <a href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">About</a>
               <a href="/contact" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Contact</a>
             </div>
