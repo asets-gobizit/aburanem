@@ -41,22 +41,51 @@ export default function Home() {
       </section>
 
       {/* Portfolio Interactive Gallery */}
-      <section id="portfolio" className="max-w-7xl mx-auto px-8 py-16" style={{ marginTop: '20px' }}>
-        <h3 className="text-3xl font-light mb-12">Portfolio</h3>
+      <section id="portfolio" className="py-16" style={{ marginTop: '20px' }}>
+        <div className="max-w-7xl mx-auto px-8 mb-8">
+          <h3 className="text-3xl font-light">Portfolio</h3>
+        </div>
 
         {/* Large Featured Image */}
-        <div className="relative w-full h-96 md:h-[500px] overflow-hidden bg-gray-900 mb-8">
-          <Image
-            src={selectedImage.image}
-            alt={selectedImage.title}
-            fill
-            className="object-cover"
-            priority
-          />
+        <div className="relative w-full h-96 md:h-[500px] overflow-hidden bg-gray-900 mb-8 px-[50px]">
+          <div className="relative w-full h-full">
+            <Image
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Left Arrow */}
+            <button
+              onClick={() => {
+                const currentIndex = portfolioItems.findIndex(item => item.image === selectedImage.image);
+                const prevIndex = currentIndex === 0 ? portfolioItems.length - 1 : currentIndex - 1;
+                setSelectedImage(portfolioItems[prevIndex]);
+              }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 transition text-4xl font-light z-10"
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+            {/* Right Arrow */}
+            <button
+              onClick={() => {
+                const currentIndex = portfolioItems.findIndex(item => item.image === selectedImage.image);
+                const nextIndex = currentIndex === portfolioItems.length - 1 ? 0 : currentIndex + 1;
+                setSelectedImage(portfolioItems[nextIndex]);
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 transition text-4xl font-light z-10"
+              aria-label="Next image"
+            >
+              ›
+            </button>
+          </div>
         </div>
 
         {/* Thumbnail Grid - 5px gaps */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[5px] mb-8">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[5px] mb-8">
           {portfolioItems.map((item, index) => (
             <button
               key={index}
@@ -73,12 +102,13 @@ export default function Home() {
               />
             </button>
           ))}
-        </div>
+          </div>
 
-        {/* Image Title */}
-        <div>
-          <h4 className="text-2xl font-medium">{selectedImage.title}</h4>
-          <p className="text-zinc-600 dark:text-zinc-400 mt-2">{selectedImage.description}</p>
+          {/* Image Title */}
+          <div>
+            <h4 className="text-2xl font-medium">{selectedImage.title}</h4>
+            <p className="text-zinc-600 dark:text-zinc-400 mt-2">{selectedImage.description}</p>
+          </div>
         </div>
       </section>
 
