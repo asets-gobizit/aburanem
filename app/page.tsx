@@ -5,33 +5,35 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
-      {/* Hero Section with Video Background */}
-      <section className="relative w-full py-20 flex items-center justify-center bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-8 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="flex flex-col gap-4">
+      {/* Hero Section - Wix Style */}
+      <section className="w-full bg-white dark:bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-8 py-12">
+          {/* Title and Description Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-start">
+            <div className="md:col-span-2">
               <h2 className="text-5xl md:text-6xl font-light tracking-tight">
                 Vibrant Abstract Art
               </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                A collection of artwork featuring abstract illustrations and colors in vibrant tones. Each piece explores the intersection of digital artistry and creative expression through bold compositions and dynamic color palettes.
+            </div>
+            <div className="md:col-span-1">
+              <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                A collection of artwork featuring abstract illustrations and colors in vibrant tones. Each piece explores the intersection of digital artistry and creative expression.
               </p>
             </div>
+          </div>
 
-            {/* Right Video */}
-            <div className="relative w-full h-96 rounded-lg overflow-hidden bg-black">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src="/graphics/Home Avganim 1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          {/* Full Width Video */}
+          <div className="relative w-full h-96 rounded-lg overflow-hidden bg-black">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/graphics/Home Avganim 1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
