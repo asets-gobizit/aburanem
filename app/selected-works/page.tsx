@@ -55,7 +55,7 @@ export default function SelectedWorks() {
           {/* Statement Image - Full Width */}
           <div className="relative w-full h-64 md:h-96 mb-8">
             <Image
-              src="/graphics/selected-works/fabric-01.jpg"
+              src="/graphics/selected-works/artist-statement.png"
               alt="Artist Statement Visual"
               fill
               className="object-cover"
