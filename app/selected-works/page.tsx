@@ -36,23 +36,17 @@ const metalWorks = [
 ];
 
 export default function SelectedWorks() {
-  const [activeCategory, setActiveCategory] = useState<'fabric' | 'metal'>('fabric');
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const works = activeCategory === 'fabric' ? fabricWorks : metalWorks;
-  const selected = works[selectedIndex];
-
-  function handleCategory(cat: 'fabric' | 'metal') {
-    setActiveCategory(cat);
-    setSelectedIndex(0);
-  }
+  const allWorks = [...fabricWorks, ...metalWorks];
+  const selected = allWorks[selectedIndex];
 
   function handlePrev() {
-    setSelectedIndex(i => (i === 0 ? works.length - 1 : i - 1));
+    setSelectedIndex(i => (i === 0 ? allWorks.length - 1 : i - 1));
   }
 
   function handleNext() {
-    setSelectedIndex(i => (i === works.length - 1 ? 0 : i + 1));
+    setSelectedIndex(i => (i === allWorks.length - 1 ? 0 : i + 1));
   }
 
   return (
@@ -70,30 +64,6 @@ export default function SelectedWorks() {
               </p>
             ))}
           </div>
-        </div>
-
-        {/* Category Toggle */}
-        <div className="flex gap-8 mb-10 border-b border-zinc-200 dark:border-zinc-800">
-          <button
-            onClick={() => handleCategory('fabric')}
-            className={`pb-3 text-sm font-medium tracking-wider uppercase transition-colors ${
-              activeCategory === 'fabric'
-                ? 'border-b-2 border-black dark:border-white text-black dark:text-white'
-                : 'text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300'
-            }`}
-          >
-            Fabric Works
-          </button>
-          <button
-            onClick={() => handleCategory('metal')}
-            className={`pb-3 text-sm font-medium tracking-wider uppercase transition-colors ${
-              activeCategory === 'metal'
-                ? 'border-b-2 border-black dark:border-white text-black dark:text-white'
-                : 'text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300'
-            }`}
-          >
-            Metal Works
-          </button>
         </div>
 
         {/* Main Gallery Area - Full Width */}
@@ -126,7 +96,7 @@ export default function SelectedWorks() {
 
             {/* Thumbnails */}
             <div className="flex gap-[5px] mt-4 overflow-x-auto">
-              {works.map((item, index) => (
+              {allWorks.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedIndex(index)}
