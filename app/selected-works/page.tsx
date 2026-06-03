@@ -57,26 +57,12 @@ export default function SelectedWorks() {
         {/* Artist Statement */}
         <div className="mb-12 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-6">Artist Statement</h3>
-          <div className="flex flex-col md:flex-row gap-8 items-start">
-            {/* Text */}
-            <div className="md:w-[55%] space-y-4">
-              {artistStatement.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-            {/* Image */}
-            <div className="md:w-[45%]">
-              <div className="relative w-full h-96">
-                <Image
-                  src="/graphics/selected-works/artist-statement-image.jpg"
-                  alt="Artist Statement Artwork"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
+          <div className="space-y-4">
+            {artistStatement.split('\n\n').map((paragraph, i) => (
+              <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
 
