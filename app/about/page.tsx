@@ -10,7 +10,7 @@ export default function About() {
           {/* Featured Triangle Image */}
           <div className="flex justify-center mb-12">
             <div
-              className="relative w-96 h-96 md:w-[461px] md:h-[461px]"
+              className="relative w-[461px] h-[461px] md:w-[553px] md:h-[553px]"
               style={{
                 clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
               }}
