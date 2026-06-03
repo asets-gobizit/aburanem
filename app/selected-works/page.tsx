@@ -48,29 +48,30 @@ export default function SelectedWorks() {
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
       <section className="max-w-7xl mx-auto px-8 py-12">
-        <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-8">Selected Works</h2>
-
         {/* Artist Statement */}
-        <div className="mb-12 pb-8 border-b border-zinc-200 dark:border-zinc-800">
-          <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-6">Artist Statement</h3>
-          <div className="space-y-4">
-            {artistStatement.split('\n\n').map((paragraph, i) => (
-              <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
+        <div className="mb-16 pb-12">
+          <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-400 mb-8">Artist Statement</h3>
 
-        {/* Cover Artwork */}
-        <div className="mb-12">
-          <div className="relative w-full h-96">
-            <Image
-              src="/graphics/selected-works/cover-artwork.jpg"
-              alt="Cover Artwork"
-              fill
-              className="object-contain"
-            />
+          {/* Two-column layout: Image + Text */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            {/* Left: Statement Image */}
+            <div className="relative h-96 md:h-[500px]">
+              <Image
+                src="/graphics/selected-works/fabric-01.jpg"
+                alt="Artist Statement Visual"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Right: Text */}
+            <div className="space-y-4">
+              {artistStatement.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed text-justify">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
 
