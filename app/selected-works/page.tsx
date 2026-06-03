@@ -155,11 +155,8 @@ export default function SelectedWorks() {
                 {currentWorks.map((item, index) => (
                   <button
                     key={index}
-                    onClick={() => {
-                      setSelectedIndex(index);
-                      openLightbox();
-                    }}
-                    className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity cursor-pointer ${
+                    onClick={() => setSelectedIndex(index)}
+                    className={`relative flex-shrink-0 w-24 h-16 overflow-hidden transition-opacity ${
                       selectedIndex === index ? 'ring-2 ring-black dark:ring-white' : 'opacity-60 hover:opacity-100'
                     }`}
                   >
