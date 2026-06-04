@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Contact() {
+  const router = useRouter();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -18,7 +19,6 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    setSuccess(false);
 
     try {
       const response = await fetch('/api/contact', {
@@ -28,10 +28,7 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        setSuccess(true);
-        setFormData({ name: '', email: '', message: '' });
-        // Hide success message after 5 seconds
-        setTimeout(() => setSuccess(false), 5000);
+        router.push('/thank-you');
       } else {
         setError('Failed to send message. Please try again.');
       }
@@ -61,12 +58,6 @@ export default function Contact() {
           <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8">
             Interested in collaborating or want to learn more about our work? We'd love to hear from you.
           </p>
-
-          {success && (
-            <div className="mb-6 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded text-green-800 dark:text-green-200">
-              ✓ Your message has been sent successfully!
-            </div>
-          )}
 
           {error && (
             <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded text-red-800 dark:text-red-200">
