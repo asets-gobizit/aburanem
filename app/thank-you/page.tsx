@@ -1,5 +1,7 @@
 'use client';
 
+import Link from "next/link";
+
 export default function ThankYou() {
   return (
     <main className="flex-1 bg-white dark:bg-zinc-950">
@@ -9,20 +11,16 @@ export default function ThankYou() {
           Thank you for getting in touch. Your message has been sent.
         </p>
         <p className="text-lg text-zinc-500 dark:text-zinc-500 mb-8">
-          We'll be in touch soon.
+          We&apos;ll be in touch soon.
         </p>
-        <a
+        <Link
           href="/"
           className="inline-block px-8 py-3 bg-black dark:bg-white text-white dark:text-black rounded font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition"
         >
           Return Home
-        </a>
+        </Link>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-12 text-center text-sm text-zinc-600 dark:text-zinc-400">
-        <p>&copy; 2024 Aburanem. All rights reserved    |   info@alexandergad.art</p>
-      </footer>
     </main>
   );
 }

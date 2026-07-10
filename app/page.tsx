@@ -94,10 +94,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-12 text-center text-sm text-zinc-600 dark:text-zinc-400">
-        <p>&copy; 2024 Aburanem. All rights reserved    |   info@alexandergad.art</p>
-      </footer>
     </main>
   );
 }

@@ -32,7 +32,7 @@ export default function Contact() {
       } else {
         setError('Failed to send message. Please try again.');
       }
-    } catch (err) {
+    } catch {
       setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
@@ -56,7 +56,7 @@ export default function Contact() {
 
         <div className="max-w-2xl">
           <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8">
-            Interested in collaborating or want to learn more about our work? We'd love to hear from you.
+            Interested in collaborating or want to learn more about our work? We&apos;d love to hear from you.
           </p>
 
           {error && (
@@ -115,10 +115,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-12 text-center text-sm text-zinc-600 dark:text-zinc-400">
-        <p>&copy; 2024 Aburanem. All rights reserved    |   info@alexandergad.art</p>
-      </footer>
     </main>
   );
 }
